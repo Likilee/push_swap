@@ -34,3 +34,18 @@ void	print_stacks(t_list *stack_a, t_list *stack_b)
 	ft_printf("\n");
 	print_stacks(stack_a, stack_b);
 }
+
+void		print_instructions(t_list *instructions)
+{
+	int		count;
+
+	count = 0;
+	ft_printf("Inst : ");
+	while (instructions)
+	{
+		++count;
+		ft_printf("%s ", instructions->content);
+		instructions = instructions->next;
+	}
+	ft_printf("| Count: %d \n", count);
+}
