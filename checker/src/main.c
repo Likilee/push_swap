@@ -14,10 +14,17 @@ int		main(int argc, char **argv)
 	stack_b = NULL;
 	init_stack_a_and_b(&stack_a, &stack_b, argv + 1);
 	print_result(stack_a, stack_b, "Before sorting");
-	instructions = read_instructions();
-	check_instructions_syntax(instructions);
-	do_sorting(&stack_a, &stack_b, instructions);
-	print_result(stack_a, stack_b, "After Sorting");
+	while (1)
+	{
+		instructions = read_instructions();
+		check_instructions_syntax(instructions);
+		do_sorting(&stack_a, &stack_b, instructions);
+		print_result(stack_a, stack_b, "After Sorting");
+		print_instructions(instructions);
+		ft_lstclear(&instructions, free);
+	}
 	check_result(stack_a, stack_b);
 	return (0);
 }
+
+
